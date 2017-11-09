@@ -64,7 +64,7 @@
     // 监听播放状态
     @weakify(self);
     @weakify(playerItem);
-    _playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 30) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    _playTimeObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMake(1, 20) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
         @strongify(self);
         @strongify(playerItem);
         float current = CMTimeGetSeconds(time);
