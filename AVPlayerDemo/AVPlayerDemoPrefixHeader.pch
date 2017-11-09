@@ -1,0 +1,32 @@
+//
+//  AVPlayerDemoPrefixHeader.pch
+//  AVPlayerDemo
+//
+//  Created by vicczhang on 2017/11/8.
+//  Copyright © 2017年 vic. All rights reserved.
+//
+
+#ifndef AVPlayerDemoPrefixHeader_pch
+#define AVPlayerDemoPrefixHeader_pch
+
+#import <Foundation/Foundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+
+
+#ifdef DEBUG
+#define DebugLog(format, ...) NSLog(@"<%@ - line:%d> %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(format), ##__VA_ARGS__])
+#else
+#define DebugLog(...)
+#endif
+
+#define refresh_key @"refreshProgress"
+#define status_key @"playStatusChange"
+
+#define pushNotify(_name, _object)  \
+[[NSNotificationCenter defaultCenter] postNotificationName:_name object:_object];
+
+#define notify_refresh pushNotify(refresh_key,nil);
+#define notify_status pushNotify(status_key,nil);
+
+#endif /* AVPlayerDemoPrefixHeader_pch */
